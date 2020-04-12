@@ -11,7 +11,7 @@ import time
 from datetime import date
 from src.diccionarios import *
 
-dataset2019=pd.read_csv('./input/datos201912.csv', sep=';').drop(columns=['PROVINCIA',"MUNICIPIO","PUNTO_MUESTREO","ANO"],axis=0)
+dataset2019=pd.read_csv('./input/datos2019.csv', sep=';').drop(columns=['PROVINCIA',"MUNICIPIO","PUNTO_MUESTREO","ANO"],axis=0)
 
 def format_day_month():
     today = date.today()
