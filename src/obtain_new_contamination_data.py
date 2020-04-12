@@ -36,7 +36,22 @@ def get_dataset_today(estacion):
     dataset_hoy['Abreviatura']=[diccionario_magnitudes[tecnica]['abbreviation'] for tecnica in dataset_hoy[3]]
     dataset_hoy['Unidades']=[diccionario_magnitudes[tecnica]['unit'] for tecnica in dataset_hoy[3]]
     dataset_hoy=dataset_hoy[["Magnitudes","Valores","Unidades","Abreviatura"]]   
+    return dataset_hoy
+
+
+def print_dataset_today(estacion):
+    dataset_hoy=obtener_datos_contaminacion_actualizados()
+    dataset_hoy=limpiar_datos_contaminacion_hoy(dataset_hoy)
+    dataset_hoy=calculos_df_limpio(dataset_hoy)
+    dataset_hoy=dataset_hoy.loc[dataset_hoy[2]==int(estacion)]
+    #Those two values appears in the data but not in the documentation, so we can't know what they are
+    dataset_hoy=dataset_hoy[dataset_hoy[3]!=22]
+    dataset_hoy=dataset_hoy[dataset_hoy[3]!=44]
+    dataset_hoy['Magnitudes']=[diccionario_magnitudes[tecnica]['Name'] for tecnica in dataset_hoy[3]]
+    dataset_hoy['Abreviatura']=[diccionario_magnitudes[tecnica]['abbreviation'] for tecnica in dataset_hoy[3]]
+    dataset_hoy['Unidades']=[diccionario_magnitudes[tecnica]['unit'] for tecnica in dataset_hoy[3]]
+    dataset_hoy=dataset_hoy[["Magnitudes","Valores","Unidades","Abreviatura"]]   
     print(f"Datos correspondientes al año {2020} a la estacion {diccionario_estaciones[int(estacion)]}.")
     print(dataset_hoy)
-    return dataset_hoy
+
 

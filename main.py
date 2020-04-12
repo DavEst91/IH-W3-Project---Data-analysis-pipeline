@@ -13,7 +13,7 @@ args = parser.parse_args()
 print_data_from_AEMET(get_data_from_AEMET())
 
 for i in range(int(args.ano),2020):
-	get_last_years_data(args.estacion,i)
+	print_last_years_data(args.estacion,i)
 
 get_dataset_today(args.estacion)
 
