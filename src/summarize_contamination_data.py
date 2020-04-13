@@ -63,3 +63,12 @@ def concat_calculate(table_old,table_new,estacion,output):
         tabla_resumen.to_csv(path_or_buf=filename)
         os.chdir(ruta)
         return tabla_resumen
+    elif output=='pdf':
+        today = date.today()
+        dia,mes,ano = today.strftime("%d"),today.strftime("%m"),today.strftime("%y")
+        filename=f"{ano}{mes}{dia}_{diccionario_estaciones[int(estacion)]}_contamination_data.csv"
+        ruta=os.getcwd()
+        os.chdir("./output")
+        tabla_resumen.to_csv(path_or_buf=filename)
+        os.chdir(ruta)
+        return filename
