@@ -5,7 +5,7 @@ Data from Madrid air quality is freely offered by [Ayuntamiento de Madrid](https
 Meteorological data is freely offered by [AEMET Open Data](https://opendata.aemet.es/centrodedescargas/inicio)
 
 
-## Abstract:
+## Description:
 We have created a program that obstains todays prediction of meteorolical data from AEMET and todays air quality data from Ayuntamiento de Madrid.Then we search in the database for the air quality data at the same day in the last ten years and offer todays prediction from AEMET, a summarize table for the air quality data and a graph for each measured magnitud.
 
 The results can be filtered from the measuring station we want data from and the year since we want data.
@@ -28,4 +28,36 @@ You need to have installed the following Python 3 libraries:
 
 Also you need to get an [ApiKey for AEMET API](https://opendata.aemet.es/centrodedescargas/altaUsuario) and save it in a .env file located in the parent directory as AEMET_APIKEY=<your_apikey>
 
+## Usage:
 
+```
+python3 main.py --estacion <ref code> --year <Year since you want information in format AAAA> --output <screen or file>
+```
+Code of measuring stations response to international encoding and therefore are not changed. You can find them in the table below.
+
+| ISO code | ref code |    Measuring station    |
+|:--------:|:--------:|:-----------------------:|
+|  2807904 |     4    |      Pza. de España     |
+|  2807908 |     8    |     Escuelas Aguirre    |
+|  2807911 |    11    |   Avda. Ramón y Cajal   |
+|  2807916 |    16    |       Arturo Soria      |
+|  2807917 |    17    |     Villaverde Alto     |
+|  2807918 |    18    |       C/Farolillo       |
+|  2807924 |    24    |      Casa de Campo      |
+|  2807927 |    27    |         Barajas         |
+|  2807935 |    35    |     Plaza del Carmen    |
+|  2807936 |    36    |        Moratalaz        |
+|  2807938 |    38    |      Cuatro Caminos     |
+|  2807939 |    39    |     Barrio del Pilar    |
+|  2807940 |    40    |         Vallecas        |
+|  2807947 |    47    |      Mendez Alvaro      |
+|  2807948 |    48    |     Paseo Castellana    |
+|  2807949 |    49    |          Retiro         |
+|  2807950 |    50    |      Plaza Castilla     |
+|  2807954 |    54    |    Ensanche Vallecas    |
+|  2807955 |    55    | Urb. Embajada (Barajas) |
+|  2807956 |    56    |      Plaza Elíptica     |
+|  2807957 |    57    |       Sanchinarro       |
+|  2807958 |    58    |         El Pardo        |
+|  2807959 |    59    |   Parque Juan Carlos I  |
+|  2807960 |    60    |       Tres Olivos       |
