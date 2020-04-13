@@ -5,4 +5,27 @@ Data from Madrid air quality is freely offered by [Ayuntamiento de Madrid](https
 Meteorological data is freely offered by [AEMET Open Data](https://opendata.aemet.es/centrodedescargas/inicio)
 
 
-## Objective:
+## Abstract:
+We have created a program that obstains todays prediction of meteorolical data from AEMET and todays air quality data from Ayuntamiento de Madrid.Then we search in the database for the air quality data at the same day in the last ten years and offer todays prediction from AEMET, a summarize table for the air quality data and a graph for each measured magnitud.
+
+The results can be filtered from the measuring station we want data from and the year since we want data.
+
+
+Outputs can be only shown in screen or stored as files.
+
+## Requirements:
+
+You need to have installed the following Python 3 libraries: 
+* pandas
+* numpy
+* matplotlib
+* requests
+* datetime
+* dotenv
+* io
+* seaborn
+* argparse
+
+Also you need to get an [ApiKey for AEMET API](https://opendata.aemet.es/centrodedescargas/altaUsuario) and save it in a .env file located in the parent directory as AEMET_APIKEY=<your_apikey>
+
+
