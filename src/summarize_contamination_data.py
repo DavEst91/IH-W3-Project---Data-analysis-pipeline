@@ -5,6 +5,7 @@ from datetime import date
 from src.diccionarios import *
 
 
+#This function structures the data from old years in a summary table
 def get_summary_table_old_data(estacion,ano):
     listado_magnitudes=[]
     for magnitud in list(diccionario_magnitudes.values()):
@@ -26,6 +27,7 @@ def get_summary_table_old_data(estacion,ano):
     tabla_resumen.set_index('year',inplace=True )
     return(tabla_resumen)
 
+#This function structures the data new in a summary table
 def get_summary_table_new_data(estacion):
     dataset=get_dataset_today(estacion)
     listado_magnitudes=[]
@@ -45,6 +47,7 @@ def get_summary_table_new_data(estacion):
     tabla_resumen.set_index('year',inplace=True )
     return(tabla_resumen)
 
+#concatenating new and old data DataFrames and making some calculations
 def concat_calculate(table_old,table_new,estacion,output):
     tabla_resumen=pd.concat([table_old,table_new]).T
     tabla_resumen['media']=tabla_resumen.mean(axis=1).round(1)

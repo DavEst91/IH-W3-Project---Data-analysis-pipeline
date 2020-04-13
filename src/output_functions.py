@@ -5,6 +5,8 @@ from src.obtain_data_from_AEMET import *
 from src.summarize_contamination_data import *
 from src.create_graphs import*
 
+#In this module different functions are defined to get the output in different forms.
+
 def output_screen(estacion,ano,output):
     try:
         print_data_from_AEMET(get_data_from_AEMET())
