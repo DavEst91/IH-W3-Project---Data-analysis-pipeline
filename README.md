@@ -30,7 +30,7 @@ Also you need to get an [ApiKey for AEMET API](https://opendata.aemet.es/centrod
 ## Usage:
 
 ```
-python3 main.py --estacion <ref code> --year <Year since you want information in format AAAA> --output <screen or file>
+python3 main.py --estacion <ref code> --ano <Year since you want information in format AAAA> --output <screen or file>
 ```
 Code of measuring stations response to international encoding and therefore are not changed. You can find them in the table below and the correspondent ref code for this program.
 <center>
