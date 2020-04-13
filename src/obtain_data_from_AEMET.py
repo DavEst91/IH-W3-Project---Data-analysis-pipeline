@@ -1,5 +1,7 @@
 import requests
 import os
+from datetime import date
+from src.diccionarios import *
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -21,7 +23,7 @@ def print_data_from_AEMET(prediccion):
     print(f"\t·La sensación térmica oscila entre {prediccion[0]['prediccion']['dia'][0]['sensTermica']['minima']} ºC y {prediccion[0]['prediccion']['dia'][0]['sensTermica']['maxima']} ªC.")
 
 
-def store_data_from_AEMET():
+def store_data_from_AEMET(prediccion):
     estado_cielo=prediccion[0]['prediccion']['dia'][0]['estadoCielo'][0]['descripcion']
     hum_rel_min=prediccion[0]['prediccion']['dia'][0]['humedadRelativa']['minima']
     hum_rel_max=prediccion[0]['prediccion']['dia'][0]['humedadRelativa']['maxima']
@@ -31,4 +33,21 @@ def store_data_from_AEMET():
     sens_temp_max=prediccion[0]['prediccion']['dia'][0]['sensTermica']['maxima']
     sens_temp_min=prediccion[0]['prediccion']['dia'][0]['sensTermica']['minima']
     return estado_cielo,hum_rel_min,hum_rel_max,prob_precipitacion,temp_min,temp_max,sens_temp_min,sens_temp_max
+
+def save_data_from_AEMET(prediccion,estacion,ano):
+    today = date.today()
+    dia,mes,ano = today.strftime("%d"),today.strftime("%m"),today.strftime("%y")
+    filename=f"{ano}{mes}{dia}_{diccionario_estaciones[int(estacion)]}_prediccionAEMET.txt"
+    ruta=os.getcwd()
+    os.chdir("./output")
+    file=open(filename,'w')
+    file.write(f"Predicción meteorológica para el {dia}/{mes}/{ano} del AEMET:\n")
+    file.write(f"\t·El estado del cielo es {prediccion[0]['prediccion']['dia'][0]['estadoCielo'][0]['descripcion'].lower()}.\n")
+    file.write(f"\t·La humedad relativa oscila entre {prediccion[0]['prediccion']['dia'][0]['humedadRelativa']['minima']}% y {prediccion[0]['prediccion']['dia'][0]['humedadRelativa']['maxima']}%.\n")
+    file.write(f"\t·La probabilidad de precipitacion es del {prediccion[0]['prediccion']['dia'][0]['probPrecipitacion'][0]['value']}%.\n")
+    file.write(f"\t·La temperatura oscila entre {prediccion[0]['prediccion']['dia'][0]['temperatura']['minima']} ºC y {prediccion[0]['prediccion']['dia'][0]['temperatura']['maxima']} ºC.\n")
+    file.write(f"\t·La sensación térmica oscila entre {prediccion[0]['prediccion']['dia'][0]['sensTermica']['minima']} ºC y {prediccion[0]['prediccion']['dia'][0]['sensTermica']['maxima']} ªC.\n")
+    file.close()
+    os.chdir(ruta)
+
     

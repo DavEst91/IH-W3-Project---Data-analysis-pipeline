@@ -1,6 +1,8 @@
 import sys, pandas as pd, os, numpy as np
 from src.obtain_new_contamination_data import *
 from src.obtain_old_contamination_data import *
+from datetime import date
+from src.diccionarios import *
 
 
 def get_summary_table_old_data(estacion,ano):
@@ -43,9 +45,18 @@ def get_summary_table_new_data(estacion):
     tabla_resumen.set_index('year',inplace=True )
     return(tabla_resumen)
 
-def concat_calculate(table_old,table_new):
+def concat_calculate(table_old,table_new,estacion,output):
     tabla_resumen=pd.concat([table_old,table_new]).T
     tabla_resumen['media']=tabla_resumen.mean(axis=1).round(1)
     tabla_resumen['std']=tabla_resumen.std(axis=1).round(1)
-    return tabla_resumen
-
+    if output=='screen':
+        return tabla_resumen
+    elif output=='file':
+        today = date.today()
+        dia,mes,ano = today.strftime("%d"),today.strftime("%m"),today.strftime("%y")
+        filename=f"{ano}{mes}{dia}_{diccionario_estaciones[int(estacion)]}_contamination_data.csv"
+        ruta=os.getcwd()
+        os.chdir("./output")
+        tabla_resumen.to_csv(path_or_buf=filename)
+        os.chdir(ruta)
+        return tabla_resumen

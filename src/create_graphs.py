@@ -9,7 +9,8 @@ import seaborn as sns
 sns.set()
 
 def create_plots(estacion,ano,output):
-    tabla_resumen=concat_calculate(get_summary_table_old_data(estacion,ano),get_summary_table_new_data(estacion)).T
+    tabla_resumen=concat_calculate(get_summary_table_old_data(estacion,ano),get_summary_table_new_data(estacion),estacion,output).T
+
     tabla_resumen=tabla_resumen.dropna(axis=1)
 
     for magnitud in list(tabla_resumen.columns):
@@ -27,4 +28,14 @@ def create_plots(estacion,ano,output):
         plt.legend()
         if output=='screen':
             plt.show()
+        if output=="file":
+            today = date.today()
+            dia,mes,ano = today.strftime("%d"),today.strftime("%m"),today.strftime("%y")
+            filename=f"{ano}{mes}{dia}_{diccionario_estaciones[int(estacion)]}_{magnitud}.png"
+            ruta=os.getcwd()
+            os.chdir("./output")
+            plt.savefig(filename)
+            os.chdir(ruta)
+            plt.clf()
+        
 

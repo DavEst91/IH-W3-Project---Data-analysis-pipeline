@@ -15,3 +15,5 @@ args = parser.parse_args()
 if args.output=='screen':
     output_screen(args.estacion,args.ano,args.output)
     
+elif args.output=='file':
+    output_file(args.estacion,args.ano,args.output)

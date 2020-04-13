@@ -13,5 +13,11 @@ def output_screen(estacion,ano,output):
         pass
     print(f"Mostrando tabla resumen de las medidas realizadas en la estacion {diccionario_estaciones[int(estacion)]} desde el año {ano}.")
 
-    print(concat_calculate(get_summary_table_old_data(int(estacion),int(ano)),get_summary_table_new_data(int(estacion))))
+    print(concat_calculate(get_summary_table_old_data(int(estacion),int(ano)),get_summary_table_new_data(int(estacion)),estacion,output))
+    create_plots(int(estacion),int(ano),output)
+
+
+def output_file(estacion, ano, output):
+    save_data_from_AEMET(get_data_from_AEMET(),estacion,ano)
+    concat_calculate(get_summary_table_old_data(int(estacion),int(ano)),get_summary_table_new_data(int(estacion)),estacion,output)
     create_plots(int(estacion),int(ano),output)
