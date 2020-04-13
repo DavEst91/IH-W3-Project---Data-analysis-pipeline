@@ -6,10 +6,7 @@ Meteorological data is freely offered by [AEMET Open Data](https://opendata.aeme
 
 
 ## Description:
-We have created a program that obstains todays prediction of meteorological data from AEMET and todays air quality data from Ayuntamiento de Madrid.Then we search in the database for the air quality data at the same day in the last ten years and offer todays prediction from AEMET, a summarize table for the air quality data and a graph for each measured magnitud.
-
-The results can be filtered from the measuring station we want data from and the year since we want data.
-
+We have created a program that obtains today's prediction of meteorological data from AEMET and todays air quality data from Ayuntamiento de Madrid. Then we search in the database for the air quality data on the same day in the last ten years and offer today's prediction from AEMET, a summarize table for the air quality data and a graph for each measured magnitudes.The results can be filtered from the measuring station we want data from and the year since we want data.
 
 Outputs can be only shown in screen or stored as files.
 
@@ -33,7 +30,7 @@ Also you need to get an [ApiKey for AEMET API](https://opendata.aemet.es/centrod
 ```
 python3 main.py --estacion <ref code> --year <Year since you want information in format AAAA> --output <screen or file>
 ```
-Code of measuring stations response to international encoding and therefore are not changed. You can find them in the table below.
+Code of measuring stations response to international encoding and therefore are not changed. You can find them in the table below and the correspondent ref code for this program.
 
 | ISO code | ref code |    Measuring station    |
 |:--------:|:--------:|:-----------------------:|
