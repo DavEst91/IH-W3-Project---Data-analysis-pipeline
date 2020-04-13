@@ -4,6 +4,8 @@ Data from Madrid air quality is freely offered by [Ayuntamiento de Madrid](https
 
 Meteorological data is freely offered by [AEMET Open Data](https://opendata.aemet.es/centrodedescargas/inicio)
 
+In the file [Interprete_ficheros_calidad_del_aire.pdf](https://github.com/DavEst91/data-analysis-pipeline/blob/master/Interprete_ficheros_%20calidad_%20del_%20aire_global.pdf) you can find the information provided by Ayuntamiento de Madrid to interpretate its data.
+
 
 ## Description:
 We have created a program that obtains today's prediction of meteorological data from AEMET and todays air quality data from Ayuntamiento de Madrid. Then we search in the database for the air quality data on the same day in the last ten years and offer today's prediction from AEMET, a summarize table for the air quality data and a graph for each measured magnitudes.The results can be filtered from the measuring station we want data from and the year since we want data.
