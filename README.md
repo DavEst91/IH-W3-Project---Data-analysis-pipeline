@@ -33,7 +33,8 @@ Also you need to get an [ApiKey for AEMET API](https://opendata.aemet.es/centrod
 python3 main.py --estacion <ref code> --year <Year since you want information in format AAAA> --output <screen or file>
 ```
 Code of measuring stations response to international encoding and therefore are not changed. You can find them in the table below and the correspondent ref code for this program.
-
+<center>
+  
 | ISO code | ref code |    Measuring station    |
 |:--------:|:--------:|:-----------------------:|
 |  2807904 |     4    |      Pza. de España     |
@@ -60,3 +61,5 @@ Code of measuring stations response to international encoding and therefore are 
 |  2807958 |    58    |         El Pardo        |
 |  2807959 |    59    |   Parque Juan Carlos I  |
 |  2807960 |    60    |       Tres Olivos       |
+
+</center>
