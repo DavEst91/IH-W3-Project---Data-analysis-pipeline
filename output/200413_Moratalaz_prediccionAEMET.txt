@@ -1,6 +1,0 @@
-Predicción meteorológica para el 13/04/20 del AEMET:
-	·El estado del cielo es .
-	·La humedad relativa oscila entre 55% y 85%.
-	·La probabilidad de precipitacion es del 0%.
-	·La temperatura oscila entre 9 ºC y 18 ºC.
-	·La sensación térmica oscila entre 9 ºC y 18 ªC.
